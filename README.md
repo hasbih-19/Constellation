@@ -40,8 +40,7 @@ Whether you're brainstorming, journaling, writing, or researching — Nebula hel
 
 ## 🛠️ Getting Started
 
-### 1. Clone the project
+### 1. Install requirements
 
 ```bash
-git clone https://github.com/yourusername/nebula.git
-cd nebula
+pip install -r requirements.txt
