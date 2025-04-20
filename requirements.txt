@@ -1,3 +1,4 @@
 mediapipe==0.10.9
 flask
 opencv-python
+flask-cors

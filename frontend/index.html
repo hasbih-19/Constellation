@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nebula Spheres (Instanced)</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    body { margin: 0; overflow: hidden; background: #000011; }
+    #container { width: 100vw; height: 100vh; }
+    #info {
+      position: absolute;
+      top: 0; left: 0;
+      color: #fff;
+      padding: 0.5em;
+      background: rgba(0,0,0,0.5);
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">Nebula: 25 instanced spheres</div>
+  <div id="container"></div>
+
+  <!-- importmap for local module resolving -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- our module script -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
