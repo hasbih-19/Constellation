@@ -13,7 +13,10 @@ class Constellation:
     def get_stars(self):
         return self.stars
     
+<<<<<<< HEAD
     def remove_star(self, star_id):
         self.stars.remove(star_id)
     
+=======
+>>>>>>> 36de006 (Added star, constellation and nebula units)
     
