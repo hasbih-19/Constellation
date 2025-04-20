@@ -22,15 +22,15 @@ Whether you're brainstorming, journaling, writing, or researching — Nebula hel
 | Concept         | In Nebula terms      | Description                                                  |
 |-----------------|----------------------|--------------------------------------------------------------|
 | Idea            | 🌟 Star              | A single thought, concept, or note                           |
-| Connection      | 🖋️ Ink              | An AI-generated or manual link between two stars             |
+| Connection      | 🖋️ Link              | An AI-generated or manual link between two stars             |
 | Thought cluster | 🌌 Constellation     | A group of related ideas — a bigger theme or mental model    |
 
 ---
 
 ## 🚀 Features (in progress)
 
-- [x] Ingest your thoughts (text, markdown, etc.)
-- [x] Use AI (OpenAI, etc.) to link related ideas
+- [ ] Ingest your thoughts (text, markdown, etc.)
+- [ ] Use AI (OpenAI, etc.) to link related ideas
 - [ ] Visualize your thoughts as a live constellation graph
 - [ ] Explore ideas via graph navigation
 - [ ] Tag, group, and expand constellations
