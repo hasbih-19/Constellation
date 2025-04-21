@@ -1,0 +1,4 @@
+# Add this to .gitignore
+.env
+*.env
+venv
