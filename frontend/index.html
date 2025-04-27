@@ -2,10 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FlaskApp</title>
+    <title>Live Mode Viewer</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <h2>Welcome to FlaskApp!</h2>
+    <h1>Current Mode:</h1>
+    <div id="mode-display">Loading...</div>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/data');
+                const data = await response.json();
+                document.getElementById('mode-display').innerText = data.mode;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Fetch immediately and then every 1 second
+        fetchData();
+        setInterval(fetchData, 500);
+    </script>
 </body>
 </html>

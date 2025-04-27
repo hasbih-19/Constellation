@@ -2,6 +2,12 @@ import cv2
 import mediapipe as mp
 import math
 import time
+import socket
+
+# Setup socket client
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect(('localhost', 65432))  # Must match Flask side port
+
 
 # ---------------------------
 # Configuration parameters
@@ -94,19 +100,28 @@ with mp_hands.Hands(
                                 if hand_mode[hand_type]!= "Select":
                                     hand_mode[hand_type] = "Select"     # Right-hand select mode (blue)
                                     print("Right hand: double tap → SELECT mode")
+                                    client_socket.sendall(b'Right: Select Mode')
+
 
                                 else:
                                     hand_mode[hand_type] = None         # Exit select mode
                                     print("Right hand: double tap → NORMAL mode")
+                                    client_socket.sendall(b'Right: Normal Mode')
+
                             else:
 
                                 if hand_mode[hand_type]!= "DoubleTap":
                                     hand_mode[hand_type] = "DoubleTap"   # Left double-tap – remains purple
                                     print("Left hand: double tap")
+                                    client_socket.sendall(b'Left: Double Tap Mode')
+
+
 
                                 else:
                                     hand_mode[hand_type] = None         # Exit select mode
                                     print("Left hand: double tap → NORMAL mode")
+                                    client_socket.sendall(b'Left: Normal Mode')
+
 
 
                                 
