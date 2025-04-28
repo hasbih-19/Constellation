@@ -6,7 +6,7 @@ import socket
 
 # Setup socket client
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('localhost', 65432))  # Must match Flask side port
+client_socket.connect(('127.0.0.1', 65432))  # Must match Flask side port
 
 
 # ---------------------------
@@ -180,9 +180,19 @@ with mp_hands.Hands(
 
                 # Draw drag line if needed
                 if dragging and move_start_point and last_pinch_point:
-                    cv2.line(frame, move_start_point, last_pinch_point, (0, 0, 255), 2)
-                    length = euclidean_distance_2d(move_start_point, last_pinch_point)
-                    print(f"Dragging length: {length:.2f}")
+                    dx = last_pinch_point[0] - move_start_point[0]
+                    dy = last_pinch_point[1] - move_start_point[1]
+                    
+                    # Normalize by screen size (optional)
+                    norm_dx = dx / w
+                    norm_dy = dy / h
+
+                    # Send drag vector over socket
+                    message = f"Drag:{norm_dx:.4f},{norm_dy:.4f}"
+                    client_socket.sendall(message.encode())
+
+                    # Update move_start_point so next delta is relative
+                    move_start_point = last_pinch_point
 
         else:
             # No hands detected – reset drag state
